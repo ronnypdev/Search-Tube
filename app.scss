@@ -1,3 +1,19 @@
-h1 {
-  color: red;
+.search-form {
+  margin-top: 50px;
+
+  .search-input {
+    width: 300px;
+    border-radius: 25px;
+    border: 1px solid #eeeeee;
+    padding: 10px 10px 7px 15px;
+  }
+
+  .btn-search {
+    background: #ff0004;
+    border: 1px solid #ff0004;
+    width: 150px;
+    border-radius: 25px;
+    padding: 10px 10px 7px 15px;
+    margin-bottom: 8px
+  }
 }
