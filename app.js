@@ -9,11 +9,13 @@ $(function() {
         var searchTerm = $('#searchForm').val();
 
         //object data sent for the server
-        youtubeData = {
+        youtubedata = {
 
           part: 'snippet',
           key: apikEY,
-          q: searchTerm
+          q: searchTerm,
+          maxResults: 25,
+          order: viewCount
 
         };
 
@@ -24,15 +26,16 @@ $(function() {
           $.each(data.items, function(i, results) {
              videoList += '<li>';
              videoList += '<h3>' + results.snippet.title + '</h3>';
-             videoList += '<img src="' + results.snippet.thumbnails + '"></li>';
+             videoList += '<iframe src="'+ results.snippet.thumbnails.standard  + '"></iframe></li>';
           });
 
           videoList+= '</ul>';
           $('#search-out-put').html(videoList);
+          console.log(youtubedata.key);
 
         };
 
 
-        $.getJSON(apiURl, youtubeData, youtubeResults);
+        $.getJSON(apiURl, youtubedata, youtubeResults);
     });
 });
