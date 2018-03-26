@@ -16,20 +16,23 @@ $(function() {
     };
 
     var youtubeResults = function(data) {
-      var videoList = '<ul>';
+      var videoList = '<ul class="list-unstyled">';
 
       $.each(data.items, function(i, results) {
         videoList += '<li>';
-        videoList += '<h3>' + results.snippet.title + '</h3>';
+        videoList +=
+          '<h3 class="h3 p-2 bg-dark text-white">' +
+          results.snippet.title +
+          '</h3>';
         videoList +=
           '<iframe src="' +
-          results.snippet.thumbnails.standard +
+          results.snippet.thumbnails.medium.url +
           '"></iframe></li>';
+        videoList += '<p>' + results.snippet.description + '</p>';
       });
 
       videoList += '</ul>';
       $('#search-out-put').html(videoList);
-      console.log(results.snippet.thumbnails.standard);
     };
 
     $.getJSON(apiURl, youtubedata, youtubeResults);
